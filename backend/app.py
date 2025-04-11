@@ -3,4 +3,4 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "¡Hola desde el backend Sernapesca!"
+    return "¡Hola desde el backend Sernapesca! - prueba"
