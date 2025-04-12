@@ -51,36 +51,96 @@ INTERFAZ GRAFICA CONSULTA CENTROS/
 
 ## 🔄 Instalación y uso
 
-1. Clona el proyecto y entra a la carpeta:
+### Entorno de desarrollo
+
+Para desarrollo, es recomendable ejecutar el frontend directamente en la máquina local y el backend en Docker:
+
+1. Clonar el proyecto y entrar a la carpeta:
    ```bash
    git clone <repo-url>
    cd INTERFAZ GRAFICA CONSULTA CENTROS
    ```
 
-2. Asegúrate de tener un archivo `.env` con:
-   ```env
-   DB_HOST=db
-   DB_USER=user
-   DB_PASS=secret
-   DB_NAME=sernapesca
-   ```
-
-3. Construye y levanta los contenedores:
+2. Iniciar el backend y base de datos con Docker:
    ```bash
-   docker compose build
-   docker compose up -d
+   docker compose up -d db backend adminer
    ```
 
-4. Aplica las migraciones Alembic:
+3. Ejecutar las migraciones Alembic:
    ```bash
    docker compose exec backend bash
    alembic upgrade head
    ```
 
-5. Visita:
+4. Iniciar el frontend en desarrollo:
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+
+5. Acceder a las distintas interfaces:
    - Adminer: [http://localhost:8080](http://localhost:8080)
    - API/backend: [http://localhost:8000](http://localhost:8000)
-   - Frontend React: [http://localhost:3000](http://localhost:3000) o [http://localhost:5173](http://localhost:5173) en desarrollo
+   - Frontend (desarrollo): [http://localhost:5173](http://localhost:5173)
+
+### Entorno de producción
+
+Para producción, se recomienda usar Docker Compose para todos los servicios:
+
+1. Construir y levantar todos los contenedores:
+   ```bash
+   docker compose build
+   docker compose up -d
+   ```
+
+2. Acceder a las distintas interfaces:
+   - Adminer: [http://localhost:8080](http://localhost:8080)
+   - API/backend: [http://localhost:8000](http://localhost:8000)
+   - Frontend (producción): [http://localhost:3000](http://localhost:3000)
+
+### 🔄 Flujo de trabajo diario
+
+Este es el flujo de trabajo recomendado para el desarrollo día a día:
+
+#### Iniciar sesión de desarrollo
+1. Inicia Docker Desktop en tu máquina Windows
+2. Desde la terminal, en la raíz del proyecto, levanta los servicios de backend:
+   ```bash
+   docker compose up -d db backend adminer
+   ```
+3. En una terminal separada, inicia el servidor de desarrollo del frontend:
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+4. Trabaja con el frontend accediendo a [http://localhost:5173](http://localhost:5173)
+5. Todos los cambios que realices se reflejarán automáticamente gracias al hot-reloading
+
+#### Probar versión de producción
+Cuando quieras verificar cómo se verá tu trabajo en producción:
+
+1. Construye la versión de producción del frontend:
+   ```bash
+   cd frontend
+   npm run build
+   ```
+2. Reconstruye y reinicia el contenedor de frontend:
+   ```bash
+   # Desde la raíz del proyecto
+   docker compose build frontend
+   docker compose up -d frontend
+   ```
+3. Visualiza la versión de producción en [http://localhost:3000](http://localhost:3000)
+
+#### Terminar sesión de desarrollo
+Al finalizar tu sesión de trabajo:
+
+1. Detén el servidor de desarrollo de Vite con `Ctrl+C`
+2. Si lo deseas, puedes detener los contenedores:
+   ```bash
+   docker compose down
+   ```
 
 ---
 
@@ -88,9 +148,17 @@ INTERFAZ GRAFICA CONSULTA CENTROS/
 
 Este proyecto utiliza **React** como framework de interfaz y **Vite** como herramienta de desarrollo y empaquetado.
 
-- Desarrollo local: `npm run dev`
-- Despliegue en producción: `npm run build`
-- Servido mediante Nginx en el contenedor `frontend`
+### Flujo de trabajo recomendado
+
+#### Desarrollo
+- Ejecuta el frontend con `npm run dev` directamente en tu máquina local
+- Vite usa el puerto 5173 por defecto para servir la aplicación
+- Beneficios: Hot-reloading más rápido y mejor experiencia de debugging
+
+#### Producción
+- Construye el frontend con `npm run build`
+- La aplicación se sirve a través de Nginx en el puerto 3000 (configurable)
+- El contenedor Docker incluye la configuración necesaria para el despliegue
 
 ```
 frontend/
