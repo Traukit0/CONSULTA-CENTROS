@@ -7,9 +7,9 @@ class Centro(Base):
 
     id = Column(Integer, primary_key=True)
     codigo_centro = Column(Integer, unique=True, nullable=False)
-    titular = Column(String, nullable=False)
-    rut = Column(String, nullable=False)
-    acs = Column(String)
-    ubicacion = Column(String)
+    titular = Column(String(100), nullable=False)
+    rut = Column(String(10), nullable=False)
+    acs = Column(String(10))
+    ubicacion = Column(String(255))
 
     inspecciones = relationship("Inspeccion", back_populates="centro")

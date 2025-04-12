@@ -6,6 +6,6 @@ class TipoInspeccion(Base):
     __tablename__ = 'tipo_inspeccion'
 
     id = Column(Integer, primary_key=True)
-    nombre = Column(String, unique=True, nullable=False)
+    nombre = Column(String(100), unique=True, nullable=False)
 
     inspecciones = relationship("Inspeccion", back_populates="tipo")

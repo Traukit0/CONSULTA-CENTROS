@@ -1,6 +1,8 @@
 *.log
 __pycache__/
 node_modules/
+consulta-centros/
 VSCODE DOCKER.docx
 ETAPAS DESARROLLO.docx
+ALEMBIC.docx
 .env
