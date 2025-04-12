@@ -1,0 +1,37 @@
+table centro {
+  id integer [primary key]
+  codigo_centro varchar [unique]
+  titular varchar
+  rut varchar
+  acs varchar
+  ubicacion varchar
+}
+
+table funcionarios {
+  id integer [primary key]
+  nombre varchar
+  rut varchar
+}
+
+table responsable_centro {
+  id integer [primary key]
+  nombre varchar
+  rut varchar
+  cargo varchar
+  telefono varchar
+  email varchar
+}
+
+table inspeccion {
+  id integer [primary key]
+  fecha datetime
+  centro_id integer
+  responsable_id integer
+  fiscalizador_1_id integer
+  fiscalizador_2_id integer
+}
+
+Ref: inspeccion.centro_id > centro.id
+Ref: inspeccion.responsable_id > responsable_centro.id
+Ref: inspeccion.fiscalizador_1_id > funcionarios.id
+Ref: inspeccion.fiscalizador_2_id > funcionarios.id
