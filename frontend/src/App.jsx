@@ -24,6 +24,8 @@ function App() {
           </ProtectedRoute>
         } />
         <Route path="/" element={<Navigate to="/login" />} />
+        {/* Capturar cualquier ruta no definida */}
+        <Route path="*" element={<Navigate to="/login" />} />
       </Routes>
     </BrowserRouter>
   );
