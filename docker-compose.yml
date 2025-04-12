@@ -31,6 +31,16 @@ services:
     depends_on:
       - db
 
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+
 volumes:
   db_data:
     name: sernapesca_db_data
