@@ -11,3 +11,7 @@ app.register_blueprint(bp_funcionarios)
 app.register_blueprint(bp_responsables)
 app.register_blueprint(bp_inspecciones)
 app.register_blueprint(bp_tipos)
+
+@app.route('/')
+def index():
+    return "API de Sernapesca en funcionamiento 🚀"
