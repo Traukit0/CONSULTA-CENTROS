@@ -3,7 +3,7 @@
 Este sistema permite registrar, consultar y gestionar inspecciones realizadas a centros de cultivo por parte de fiscalizadores de una institución pública.
 
 Incluye:
-- Backend en Flask + SQLAlchemy + Alembic
+- Backend en Flask + SQLAlchemy + Alembic + CORS
 - Base de datos MySQL
 - Adminer para exploración visual
 - Frontend en React + Vite
@@ -15,6 +15,7 @@ Incluye:
 
 - Python 3.10+
 - Flask
+- Flask-CORS
 - SQLAlchemy
 - Alembic
 - MySQL 8
@@ -79,7 +80,7 @@ INTERFAZ GRAFICA CONSULTA CENTROS/
 5. Visita:
    - Adminer: [http://localhost:8080](http://localhost:8080)
    - API/backend: [http://localhost:8000](http://localhost:8000)
-   - Frontend React: [http://localhost:3000](http://localhost:3000)
+   - Frontend React: [http://localhost:3000](http://localhost:3000) o [http://localhost:5173](http://localhost:5173) en desarrollo
 
 ---
 
@@ -100,6 +101,22 @@ frontend/
 ├── Dockerfile
 └── vite.config.js
 ```
+
+---
+
+## 🔌 Comunicación API-Frontend
+
+El backend utiliza Flask-CORS para permitir la comunicación desde el frontend. Esta configuración está implementada en `app.py`:
+
+```python
+from flask import Flask
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)  # Habilitar CORS para toda la aplicación
+```
+
+Esto permite que el frontend (en localhost:5173 o localhost:3000) pueda hacer peticiones a la API (localhost:8000) sin problemas de CORS.
 
 ---
 
