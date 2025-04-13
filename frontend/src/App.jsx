@@ -3,6 +3,7 @@ import Centros from "./pages/Centros";
 import Login from "./pages/Login";
 import Layout from './components/Layout';
 import Dashboard from './components/Dashboard';
+import IngresarInspeccion from './pages/IngresarInspeccion';
 
 // Componente para proteger rutas
 function ProtectedRoute({ children }) {
@@ -33,6 +34,14 @@ function App() {
           <ProtectedRoute>
             <Layout>
               <Centros />
+            </Layout>
+          </ProtectedRoute>
+        } />
+        
+        <Route path="/ingresar-inspeccion" element={
+          <ProtectedRoute>
+            <Layout>
+              <IngresarInspeccion />
             </Layout>
           </ProtectedRoute>
         } />

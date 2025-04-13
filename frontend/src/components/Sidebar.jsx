@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './Sidebar.css';
 
 function Sidebar({ collapsed, toggleCollapse }) {
@@ -43,7 +44,7 @@ function Sidebar({ collapsed, toggleCollapse }) {
         <ul className="menu-list">
           {/* Dashboard */}
           <li className="menu-item">
-            <a href="#dashboard" className="menu-link">
+            <Link to="/dashboard" className="menu-link">
               <span className="menu-icon">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
@@ -51,7 +52,7 @@ function Sidebar({ collapsed, toggleCollapse }) {
                 </svg>
               </span>
               {!collapsed && <span className="menu-text">Dashboard</span>}
-            </a>
+            </Link>
           </li>
 
           {/* Inspecciones */}
@@ -78,7 +79,7 @@ function Sidebar({ collapsed, toggleCollapse }) {
             {!collapsed && expandedMenus.inspecciones && (
               <ul className="submenu">
                 <li className="submenu-item">
-                  <a href="#ingresar-inspeccion">Ingresar inspección</a>
+                  <Link to="/ingresar-inspeccion">Ingresar inspección</Link>
                 </li>
                 <li className="submenu-item">
                   <a href="#modificar-inspeccion">Modificar inspección</a>

@@ -4,6 +4,36 @@
   gap: 24px;
 }
 
+/* Dashboard Actions */
+.dashboard-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.btn-accion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.btn-accion:hover {
+  background-color: #1e40af;
+}
+
+.action-icon {
+  width: 18px;
+  height: 18px;
+}
+
 /* KPI Cards */
 .dashboard-cards {
   display: grid;
