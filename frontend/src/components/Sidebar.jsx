@@ -30,7 +30,7 @@ function Sidebar({ collapsed, toggleCollapse }) {
           </div>
           {!collapsed && (
             <div className="logo-text">
-              <h2>InspecSys</h2>
+              <h2>AcuiCastro</h2>
               <div className="logo-subtitle">Gestión de Inspecciones</div>
             </div>
           )}
@@ -256,9 +256,9 @@ function Sidebar({ collapsed, toggleCollapse }) {
       <div className="sidebar-footer">
         {!collapsed && (
           <div className="user-info">
-            <div className="user-avatar">J</div>
+            <div className="user-avatar">MC</div>
             <div className="user-details">
-              <div className="user-name">Juan Díaz</div>
+              <div className="user-name">Manuel Cano</div>
               <div className="user-role">Administrador</div>
             </div>
           </div>
