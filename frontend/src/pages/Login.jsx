@@ -27,7 +27,7 @@ function Login() {
         // Guardar token en localStorage
         localStorage.setItem('token', data.token);
         // Redireccionar a la página principal
-        navigate('/centros');
+        navigate('/dashboard');
       } else {
         setError(data.error || 'Error de autenticación');
       }
