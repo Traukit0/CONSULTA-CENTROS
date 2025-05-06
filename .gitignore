@@ -3,6 +3,7 @@
 __pycache__/
 node_modules/
 consulta-centros/
+docs/
 VSCODE DOCKER.docx
 ETAPAS DESARROLLO.docx
 ALEMBIC.docx

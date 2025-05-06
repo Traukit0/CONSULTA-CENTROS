@@ -30,7 +30,7 @@ function Sidebar({ collapsed, toggleCollapse }) {
           </div>
           {!collapsed && (
             <div className="logo-text">
-              <h2>AcuiCastro</h2>
+              <h2>AcuiGestor</h2>
               <div className="logo-subtitle">Gestión de Inspecciones</div>
             </div>
           )}
